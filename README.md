@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LangFlow Stats & Comparison Visualizer
 
-## Getting Started
+Welcome to our Next.js project! This application takes an **API Key** and a **prompt** as input, interacts with **LangFlow**, and generates insightful statistics or comparison plots based on the type of post entered in the prompt.
 
-First, run the development server:
+---
 
+## 🎥 How It Works (Demo Video)
+
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-C_UAhXq9GfuGO452EEzfbKnh1viQB9EDBQ&s">
+
+---
+
+## 🚀 Features
+
+1. **Prompt-Based Analysis**: Input a prompt to fetch statistics of a specific type of post.
+2. **Comparison Visualizations**: Generate dynamic comparison plots for better insights.
+3. **Powered by LangFlow**: Seamlessly integrates with LangFlow for robust data analysis.
+4. **Modern Tech Stack**: Built with Next.js for superior performance and scalability.
+
+---
+
+## 🛠 Installation Guide
+
+Follow these simple steps to set up the project locally:
+
+### 1. Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd <repository-folder>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Dependencies
+Run the following command to install the required packages:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Configure Environment Variables
+Create a `.env` file in the root directory and add your **Astra DB Token**. You can use the following example as a template:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+#### .env
+```env
+ASTRA_DB_TOKEN=your-astra-db-token
+```
 
-## Learn More
+### 4. Start the Development Server
+Run the following command to start the application in development mode:
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+The application will be accessible at `http://localhost:3000`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📊 How It Works
 
-## Deploy on Vercel
+1. **Input**:
+   - Provide an API key and a prompt through the user interface.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Processing**:
+   - The application sends the prompt to LangFlow to analyze the type of post or generate comparisons.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. **Output**:
+   - Fetches and displays detailed statistics.
+   - Generates comparison plots based on the analysis.
+
+---
+
+## 🧰 Tech Stack
+
+- **Next.js**: Frontend framework for building server-rendered React applications.
+- **LangFlow**: Backend integration for advanced data analysis and visualizations.
+- **Astra DB**: Used for secure and scalable database interactions.
+
+---
+
+## 💡 Key Highlights
+
+- **Seamless Integration**: Combines LangFlow's capabilities with Next.js for a smooth user experience.
+- **Dynamic Visualizations**: Create comparison plots effortlessly from prompts.
+- **Customizable**: Easily extend functionality by modifying the prompt-to-output pipeline.
+
+---
+
+## 🤝 Contribution
+
+We welcome contributions! Feel free to submit issues or pull requests to improve this project.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+---
+
+### 📬 Support
+For any issues or questions, please contact [your-email@example.com] or create an issue in this repository.
+
+---
+
+### 🌐 Access the Application
+You can access the live application here: [https://your-domain.com](https://your-domain.com)
+
+Happy Coding! 🎉
