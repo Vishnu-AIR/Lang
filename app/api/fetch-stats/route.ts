@@ -57,3 +57,13 @@ export async function POST(req: Request) {
   }
 }
 
+export async function GET(req: Request) {
+  try {
+    return NextResponse.json({"hah": "Hello bhai ke" });
+  } catch (error) {
+    console.error('Error:', error);
+    return NextResponse.json({ error: error instanceof Error ? error.message : 'Internal server error' }, { status: 500 });
+  }
+}
+
+
