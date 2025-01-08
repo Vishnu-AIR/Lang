@@ -6,7 +6,7 @@ Welcome to our Next.js project! This application takes an **API Key** and a **pr
 
 ## 🎥 How It Works (Demo Video)
 
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-C_UAhXq9GfuGO452EEzfbKnh1viQB9EDBQ&s">
+
 
 ---
 
@@ -35,15 +35,7 @@ Run the following command to install the required packages:
 npm install
 ```
 
-### 3. Configure Environment Variables
-Create a `.env` file in the root directory and add your **Astra DB Token**. You can use the following example as a template:
-
-#### .env
-```env
-ASTRA_DB_TOKEN=your-astra-db-token
-```
-
-### 4. Start the Development Server
+### 3. Start the Development Server
 Run the following command to start the application in development mode:
 ```bash
 npm run dev

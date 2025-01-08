@@ -145,26 +145,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-20">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-bold mb-8 text-slate-800">Supported Platforms</h2>
-            <div className="flex justify-center space-x-12">
-              {[
-                { icon: Instagram, color: "text-pink-500" },
-                { icon: Facebook, color: "text-blue-600" },
-                { icon: Twitter, color: "text-sky-400" }
-              ].map((platform, index) => (
-                <motion.div 
-                  key={index}
-                  whileHover={{ scale: 1.1 }} 
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <platform.icon size={64} className={platform.color} />
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        
 
         <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
           <div className="container mx-auto px-4 text-center">
@@ -203,16 +184,7 @@ export default function Home() {
                 ))}
               </ul>
             </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Connect With Us</h4>
-              <div className="flex space-x-4">
-                {[MessageSquare, Twitter, Instagram].map((Icon, index) => (
-                  <a key={index} href="#" className="hover:text-blue-300 transition-colors">
-                    <Icon size={24} />
-                  </a>
-                ))}
-              </div>
-            </div>
+            
             <div>
               <h4 className="text-lg font-semibold mb-4">Newsletter</h4>
               <p className="text-sm mb-2 text-slate-300">Stay updated with our latest features and insights.</p>
@@ -223,7 +195,7 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-slate-700 text-center text-sm text-slate-300">
-            <p>&copy; 2023 SocialFlow Insights. All rights reserved.</p>
+            <p>&copy; 2025 SocialFlow Insights. All rights reserved.</p>
           </div>
         </div>
       </footer>

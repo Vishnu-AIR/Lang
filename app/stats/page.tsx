@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowLeft, Lightbulb, Wand2 } from 'lucide-react'
+import { ArrowLeft, Lightbulb, Wand2, Loader2 } from 'lucide-react'
 import DynamicMetricsComparison from '../components/DynamicMetricsComparison'
 
 export default function Stats() {
@@ -17,6 +17,7 @@ export default function Stats() {
   const [result, setResult] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
+  const [activeTab, setActiveTab] = useState('input')
 
   const validateApiKey = (key: string) => {
     const apiKeyRegex = /^sk-proj-[a-zA-Z0-9]{48}$/
@@ -28,18 +29,19 @@ export default function Stats() {
     e.preventDefault();
     setError('');
     setResult('');
+    setIsLoading(true);
 
     if (!validateApiKey(apiKey)) {
       setError('Invalid API key format. It should start with "sk-proj-" followed by 48 characters.');
+      setIsLoading(false);
       return;
     }
 
     if (!prompt.trim()) {
       setError('Please enter a prompt for comparison.');
+      setIsLoading(false);
       return;
     }
-
-    setIsLoading(true);
 
     try {
       const response = await fetch('/api/fetch-stats', {
@@ -59,6 +61,7 @@ export default function Stats() {
       if (data.output) {
         let res = JSON.parse(data.output)
         setResult(res.outputs[0].outputs[0].results.message.text)
+        setActiveTab('results')
       } else {
         throw new Error('Unexpected response format');
       }
@@ -97,7 +100,7 @@ export default function Stats() {
               <CardDescription>Enter your API key and prompt to analyze your social media performance</CardDescription>
             </CardHeader>
             <CardContent>
-              <Tabs defaultValue="input" className="space-y-4">
+              <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4">
                 <TabsList className="grid w-full grid-cols-2">
                   <TabsTrigger value="input">Input</TabsTrigger>
                   <TabsTrigger value="results">Results</TabsTrigger>
@@ -143,7 +146,14 @@ export default function Stats() {
                       </div>
                     </div>
                     <Button type="submit" className="w-full" disabled={isLoading}>
-                      {isLoading ? 'Analyzing...' : 'Analyze Performance'}
+                      {isLoading ? (
+                        <div className="flex items-center justify-center">
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          Analyzing...
+                        </div>
+                      ) : (
+                        'Analyze Performance'
+                      )}
                     </Button>
                   </form>
 
@@ -154,10 +164,13 @@ export default function Stats() {
                     </Alert>
                   )}
                 </TabsContent>
-                
+
                 <TabsContent value="results">
-                
-                  {result ? (
+                  {isLoading ? (
+                    <div className="flex justify-center items-center py-12">
+                      <Loader2 className="h-8 w-8 animate-spin text-blue-500" />
+                    </div>
+                  ) : result ? (
                     <DynamicMetricsComparison resultText={result} />
                   ) : (
                     <div className="text-center py-8">

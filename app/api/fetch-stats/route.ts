@@ -5,7 +5,7 @@ export async function POST(req: Request) {
   try {
     const { apiKey, prompt } = await req.json()
 
-    const applicationToken = process.env.ASTRA_DB_APPLICATION_TOKEN
+    const applicationToken = "AstraCS:PsyBxdvhMqWsmOIOcvJvPLId:4b96e5cf7ee28b4f122723b6abedb95f248a8505aebdb8ebdf4daa6b85416ef0"
 
     if (!applicationToken) {
       throw new Error('ASTRA_DB_APPLICATION_TOKEN is not set in the environment variables')
