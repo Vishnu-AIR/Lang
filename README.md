@@ -1,4 +1,4 @@
-# LangFlow Stats & Comparison Visualizer
+#Social Media Posts Stats & Comparison Visualizer
 
 Welcome to our Next.js project! This application takes an **API Key** and a **prompt** as input, interacts with **LangFlow**, and generates insightful statistics or comparison plots based on the type of post entered in the prompt.
 
@@ -27,7 +27,7 @@ Follow these simple steps to set up the project locally:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Lakshay-bit-png/Lang
+git clone https://github.com/Lakshay-bit-png/Lang.git
 cd Lang
 ```
 
