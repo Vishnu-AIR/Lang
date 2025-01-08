@@ -57,7 +57,7 @@ export async function POST(req: Request) {
   }
 }
 
-export async function GET(req: Request) {
+export async function GET() {
   try {
     return NextResponse.json({"hah": "Hello bhai ke" });
   } catch (error) {
