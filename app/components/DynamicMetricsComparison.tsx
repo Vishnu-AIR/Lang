@@ -1,6 +1,6 @@
 // 'use client'
 
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import {
   Bar,
   BarChart,
@@ -29,16 +29,17 @@ interface ChartData {
 
 export default function DynamicMetricsComparison({ resultText }: DynamicMetricsComparisonProps) {
   // Using useMemo to parse and process input text based on Python logic
-  const [elements, setElements] = useState<string[]>([]);
-
-
   const { chartData, pieData } = useMemo(() => {
-    // Allowed keys for metrics (from Python logic)
+
     const allowedKeys = new Set(['Likes', 'Shares', 'Comments', 'Reach', 'Impressions']);
+    allowedKeys.forEach(p => {
+        resultText = resultText.replaceAll(`**${p}:**`, `${p}:`);
+      });
+      
+      
 
-    // Parsing logic from Python
     const sections = resultText.split(/\n\d+\.\s/); // Split sections based on numbers
-
+    console.log(sections)
     const data: Record<string, MetricData> = {}; // Dictionary to store parsed data
 
     sections.slice(1).forEach((section) => {
@@ -52,7 +53,8 @@ export default function DynamicMetricsComparison({ resultText }: DynamicMetricsC
       let match;
       while ((match = metricPattern.exec(section))) {
         const key = match[1].trim();
-        const value = parseInt(match[2], 10);
+        const value = parseInt(match[2]);
+        
         if (allowedKeys.has(key)) { // Filter metrics by allowed keys
           metrics[key] = value;
         }
@@ -80,7 +82,7 @@ export default function DynamicMetricsComparison({ resultText }: DynamicMetricsC
         })),
       };
     });
-    console.log(chartData, pieData);
+   
 
     return { chartData, pieData };
   }, [resultText]);
@@ -91,18 +93,13 @@ const COLORS = ['#57167E','#F7B7A3', '#FFF1C9', '#EA5F89', '#9B3192'];
   return (
     <div className="space-y-4">
       <h3 className="text-xl font-semibold text-slate-800">Analysis Results</h3>
-      <div className="bg-white p-4 rounded-md shadow">
+  
+      <pre className="whitespace-pre-wrap">
+  {resultText.split('\n').map((line, index) => (
+    <div key={index}>{line}</div>
+  ))}
+</pre>
 
-    <pre className="whitespace-pre-wrap">
-        {resultText 
-            ? resultText.split('\n').map((line, index) => (
-                <div key={index}>
-                    {line.replace(/\*+/g, '')} {/* Removes all occurrences of * and ** */}
-                </div>
-              ))
-            : null}
-    </pre>
-</div>
 
       {/* Render bar chart */}
       <div className="bg-white p-4 rounded-md shadow">

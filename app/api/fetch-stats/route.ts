@@ -24,7 +24,7 @@ export async function POST(req: Request) {
     "input_type": "chat",
     "tweaks": {
         "Prompt-NyN5v": {
-            "template": "from given post types , and given average engagement metrics , give the brief about comparision b/w the post types in the form of dictionary with key as post type and its value as object containing all engge,ent metrics , for example , reels have this much higher likes than this this .. and allgive brief conclusion too"
+            "template": "from given post types , give the brief about comparision b/w the post types in the form of dictionary with key as post type and its value as object containing all engge,ent metrics , for example , reels have this much higher likes than this this .. and allgive brief conclusion too"
         },
         "Agent-CNclj": {
             "add_current_date_tool": true,
