@@ -59,7 +59,7 @@ export default function Stats() {
       }
 
       if (data.output) {
-        let res = JSON.parse(data.output)
+        const res = JSON.parse(data.output)
         setResult(res.outputs[0].outputs[0].results.message.text)
         setActiveTab('results')
       } else {

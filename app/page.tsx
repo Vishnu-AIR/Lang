@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Button } from "../components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "../components/ui/card"
-import { BarChart2, TrendingUp, Zap, MessageSquare, Instagram, Facebook, Twitter, ArrowRight } from 'lucide-react'
+import { BarChart2, TrendingUp, Zap, ArrowRight } from 'lucide-react'
 
 export default function Home() {
   const [mounted, setMounted] = useState(false)

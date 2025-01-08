@@ -29,12 +29,15 @@ interface ChartData {
 
 export default function DynamicMetricsComparison({ resultText }: DynamicMetricsComparisonProps) {
   // Using useMemo to parse and process input text based on Python logic
-  const { chartData, pieData } = useMemo(() => {
-
+  
     const allowedKeys = new Set(['Likes', 'Shares', 'Comments', 'Reach', 'Impressions']);
     allowedKeys.forEach(p => {
         resultText = resultText.replaceAll(`**${p}:**`, `${p}:`);
       });
+
+  const { chartData, pieData } = useMemo(() => {
+
+    
       
       
 
@@ -49,7 +52,7 @@ export default function DynamicMetricsComparison({ resultText }: DynamicMetricsC
       const category = categoryMatch[1].trim();
       const metricPattern = /-\s+(.*?):\s+(\d+)/g; // Pattern to extract metrics
       const metrics: MetricData = {};
-
+      const allowedKeys = new Set(['Likes', 'Shares', 'Comments', 'Reach', 'Impressions']);
       let match;
       while ((match = metricPattern.exec(section))) {
         const key = match[1].trim();
@@ -124,7 +127,7 @@ const COLORS = ['#57167E','#F7B7A3', '#FFF1C9', '#EA5F89', '#9B3192'];
                         if (typeof replacement === 'string') {
                             formattedLine = formattedLine.replace(regex, replacement);
                         } else {
-                            formattedLine = formattedLine.replace(regex, replacement as (substring: string, ...args: any[]) => string);
+                            formattedLine = formattedLine.replace(regex, replacement as (substring: string, ...args: string[]) => string);
                         }
                     });
 
