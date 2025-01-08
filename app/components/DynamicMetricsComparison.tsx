@@ -95,10 +95,43 @@ const COLORS = ['#57167E','#F7B7A3', '#FFF1C9', '#EA5F89', '#9B3192'];
       <h3 className="text-xl font-semibold text-slate-800">Analysis Results</h3>
   
       <pre className="whitespace-pre-wrap">
-  {resultText.split('\n').map((line, index) => (
-    <div key={index}>{line}</div>
-  ))}
-</pre>
+        {resultText
+            ? resultText.split('\n').map((line, index) => {
+                    let formattedLine = line;
+                    const replacements = [
+                        { regex: /###/g, replacement: '\n' }, // Replace top-level headings
+                        { regex: /####/g, replacement: '\n' }, // Replace subheadings
+                        { regex: /\\/g, replacement: '' }, // Remove bold markers
+                        { regex: /\*/g, replacement: '' }, // Remove italic markers
+                        {
+                          regex: /\\frac{(\d+)}{(\d+)}/g,
+                          replacement: (_: string, num: string, denom: string) => `${num}/${denom}`, // Convert fractions
+                        },
+                        { regex: /\\approx/g, replacement: '≈' }, // Replace approximation symbol
+                        { regex: /\\pm/g, replacement: '±' }, // Replace plus-minus symbol
+                        { regex: /\\leq/g, replacement: '<=' }, // Replace less than or equal symbol
+                        { regex: /\\geq/g, replacement: '>=' }, // Replace greater than or equal symbol
+                        { regex: /\\infty/g, replacement: '∞' }, // Replace infinity symbol
+                        {
+                          regex: /\\sqrt{(\d+)}/g,
+                          replacement: (_: string, value: string) => `√${value}`, // Replace square root
+                        },
+                        { regex: /\\times/g, replacement: '×' }, // Replace multiplication symbol
+                        { regex: /\\n/g, replacement: '\n' }, // Replace escaped newlines
+                    ];
+
+                    replacements.forEach(({ regex, replacement }) => {
+                        if (typeof replacement === 'string') {
+                            formattedLine = formattedLine.replace(regex, replacement);
+                        } else {
+                            formattedLine = formattedLine.replace(regex, replacement as (substring: string, ...args: any[]) => string);
+                        }
+                    });
+
+                    return <div key={index}>{formattedLine.replace(/\*+/g, '')} </div>;
+                })
+            : null}
+    </pre>
 
 
       {/* Render bar chart */}
