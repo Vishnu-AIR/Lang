@@ -10,9 +10,8 @@ export async function POST(req: Request) {
     if (!applicationToken) {
       throw new Error('ASTRA_DB_APPLICATION_TOKEN is not set in the environment variables')
     }
-
     const response = await fetch(
-      "https://api.langflow.astra.datastax.com/lf/dd58bedf-b939-4051-9031-6397993aafa2/api/v1/run/1949e0ad-1997-4004-99b6-7ee272dd71ba?stream=false",
+      "https://api.langflow.astra.datastax.com/lf/3341abcb-b1d4-4463-86f0-6874b888e678/api/v1/run/ffadf85d-4ddb-4fff-a214-ab0260d5d46d?stream=false",
       {
         method: 'POST',
         headers: {
@@ -21,86 +20,86 @@ export async function POST(req: Request) {
         },
         body: JSON.stringify({
           "input_value": prompt,
-          "output_type": "chat",
-          "input_type": "chat",
-          "tweaks": {
-            "Prompt-8cQj5": {
-              "template": "from given post types , and given average engagement metrics , give the brief about comparision b/w the post types in the form of dictionary with key as post type and its value as object containing all engge,ent metrics , for example , reels have this much higher likes than this this .. and allgive brief conclusion too"
-            },
-            "Agent-d5MEY": {
-              "add_current_date_tool": true,
-              "agent_description": "A helpful assistant with access to the following tools:",
-              "agent_llm": "OpenAI",
-              "api_key": apiKey,
-              "handle_parsing_errors": true,
-              "input_value": "",
-              "json_mode": false,
-              "max_iterations": 15,
-              "max_tokens": null,
-              "model_kwargs": {},
-              "model_name": "gpt-4o-mini",
-              "n_messages": 100,
-              "openai_api_base": "",
-              "order": "Ascending",
-              "output_schema": {},
-              "seed": 1,
-              "sender": "Machine and User",
-              "sender_name": "",
-              "session_id": "",
-              "system_prompt": "You are a helpful assistant that can use tools to answer questions and perform tasks.",
-              "temperature": 0.1,
-              "template": "{sender_name}: {text}",
-              "verbose": true
-            },
-            "AstraDBToolComponent-ETMlW": {
-              "api_endpoint": "https://1bb35f69-6620-47c0-807e-8907218fdd3d-us-east-2.apps.astra.datastax.com",
-              "collection_name": "engagement_data",
-              "namespace": "default_keyspace",
-              "number_of_results": 5,
-              "projection_attributes": "*",
-              "static_filters": {},
-              "token": "ASTRA_DB_APPLICATION_TOKEN",
-              "tool_description": "carrying data",
-              "tool_name": "DB",
-              "tool_params": {}
-            },
-            "ChatOutput-kftPe": {
-              "background_color": "",
-              "chat_icon": "",
-              "data_template": "{text}",
-              "input_value": "",
-              "sender": "Machine",
-              "sender_name": "AI",
-              "session_id": "",
-              "should_store_message": true,
-              "text_color": ""
-            },
-            "ChatInput-UNZry": {
-              "files": "",
-              "background_color": "",
-              "chat_icon": "",
-              "sender": "User",
-              "sender_name": "User",
-              "session_id": "",
-              "should_store_message": true,
-              "text_color": ""
-            },
-            "AstraDBToolComponent-r5JZh": {
-              "api_endpoint": "https://1bb35f69-6620-47c0-807e-8907218fdd3d-us-east-2.apps.astra.datastax.com",
-              "collection_name": "average_metrics",
-              "namespace": "default_keyspace",
-              "number_of_results": 5,
-              "projection_attributes": "*",
-              "static_filters": {},
-              "token": "ASTRA_DB_APPLICATION_TOKEN",
-              "tool_description": "carrying data",
-              "tool_name": "DB",
-              "tool_params": {}
-            },
-            "TextInput-iQ6Ln": {
-              "input_value": apiKey
-            }
-          }
+    "output_type": "chat",
+    "input_type": "chat",
+    "tweaks": {
+        "Prompt-NyN5v": {
+            "template": "from given post types , and given average engagement metrics , give the brief about comparision b/w the post types in the form of dictionary with key as post type and its value as object containing all engge,ent metrics , for example , reels have this much higher likes than this this .. and allgive brief conclusion too"
+        },
+        "Agent-CNclj": {
+            "add_current_date_tool": true,
+            "agent_description": "A helpful assistant with access to the following tools:",
+            "agent_llm": "OpenAI",
+            "api_key": "",
+            "handle_parsing_errors": true,
+            "input_value": "",
+            "json_mode": false,
+            "max_iterations": 15,
+            "max_tokens": null,
+            "model_kwargs": {},
+            "model_name": "gpt-4o-mini",
+            "n_messages": 100,
+            "openai_api_base": "",
+            "order": "Ascending",
+            "output_schema": {},
+            "seed": 1,
+            "sender": "Machine and User",
+            "sender_name": "",
+            "session_id": "",
+            "system_prompt": "You are a helpful assistant that can use tools to answer questions and perform tasks.",
+            "temperature": 0.1,
+            "template": "{sender_name}: {text}",
+            "verbose": true
+        },
+        "AstraDBToolComponent-Mg8fH": {
+            "api_endpoint": "https://6d53a445-f518-4179-9149-e0594c9a6dbe-us-east-2.apps.astra.datastax.com",
+            "collection_name": "uniquedata",
+            "namespace": "default_keyspace",
+            "number_of_results": 5,
+            "projection_attributes": "*",
+            "static_filters": {},
+            "token": "ASTRA_DB_APPLICATION_TOKEN",
+            "tool_description": "carrying data",
+            "tool_name": "DB",
+            "tool_params": {}
+        },
+        "ChatOutput-sYSo5": {
+            "background_color": "",
+            "chat_icon": "",
+            "data_template": "{text}",
+            "input_value": "",
+            "sender": "Machine",
+            "sender_name": "AI",
+            "session_id": "",
+            "should_store_message": true,
+            "text_color": ""
+        },
+        "ChatInput-4HA1F": {
+            "files": "",
+            "background_color": "",
+            "chat_icon": "",
+            "sender": "User",
+            "sender_name": "User",
+            "session_id": "",
+            "should_store_message": true,
+            "text_color": ""
+        },
+        "TextInput-xbSJD": {
+            "input_value": apiKey
+        },
+        "AstraDBToolComponent-RhhUP": {
+            "api_endpoint": "https://6d53a445-f518-4179-9149-e0594c9a6dbe-us-east-2.apps.astra.datastax.com",
+            "collection_name": "uniqueaverage",
+            "namespace": "default_keyspace",
+            "number_of_results": 5,
+            "projection_attributes": "*",
+            "static_filters": {},
+            "token": "ASTRA_DB_APPLICATION_TOKEN",
+            "tool_description": "carrying data",
+            "tool_name": "DB",
+            "tool_params": {}
+        }
+    }
         })
       }
     )
