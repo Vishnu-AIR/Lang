@@ -27,8 +27,8 @@ Follow these simple steps to set up the project locally:
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/Lakshay-bit-png/Lang
+cd Lang
 ```
 
 ### 2. Install Dependencies
@@ -83,18 +83,13 @@ We welcome contributions! Feel free to submit issues or pull requests to improve
 
 ---
 
-## 📄 License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
-
----
 
 ### 📬 Support
-For any issues or questions, please contact [your-email@example.com] or create an issue in this repository.
+For any issues or questions, please contact [lakshaygargd@gmail.com] or create an issue in this repository.
 
 ---
 
-### 🌐 Access the Application
-You can access the live application here: [https://your-domain.com](https://your-domain.com)
+
 
 Happy Coding! 🎉
