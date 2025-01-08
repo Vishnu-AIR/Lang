@@ -4,9 +4,9 @@ Welcome to our Next.js project! This application takes an **API Key** and a **pr
 
 ---
 
-## 🎥 How It Works (Demo Video)
+##  How It Works (Demo Video)
 
-
+![Demo Video](./image/usage.gif)
 
 ---
 
