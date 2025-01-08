@@ -6,7 +6,9 @@ Welcome to our Next.js project! This application takes an **API Key** and a **pr
 
 ##  How It Works (Demo Video)
 
-![Demo Video](./image/usage.gif)
+<a href="https://www.youtube.com/watch?v=bDkxWQECWRw">
+Watch here!
+</a>
 
 ---
 
